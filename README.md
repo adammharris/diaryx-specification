@@ -1,13 +1,14 @@
 ---
 title: Diaryx Writing Specification
 author: Adam Harris
-created: 2025-08-08T14:41
-updated: 2025-08-26T14:03
+created: 2025-08-08 14:41:00-0600
+updated: 2025-08-26 18:01:08-0600
 visibility: public
 format: https://spec.commonmark.org/0.31.2/
 version: "0.1"
 ---
-# Overview
+
+# Diaryx Writing Specification
 
 **The Diaryx format is a standardized metadata and file organization format with the goal to enable personal writings to last forever.** To accomplish this, it is designed to:
 1. Be easy for humans to read and use directly.
@@ -49,7 +50,7 @@ created: 2025-08-25 16:24:16-0600
 updated: 2025-08-25 16:24:16-0600
 visibility: family
 format: https://spec.commonmark.org/0.31.2/
-part_of: "[[Journal entries]]"
+part_of: "()[<Journal entries>]"
 ---
 Today I had thoughts about stuff…
 ```
@@ -89,21 +90,21 @@ Specifies child documents that this index file organizes, listed in intended rea
 ```yaml
 # All equivalent - choose your preference. Default is `index`
 index:
-  - "[[chapter-01]]"
-  - "[[chapter-02]]"
+  - "()[<chapter-01>]"
+  - "()[<chapter-02>]"
 
 contents:
-  - "[[chapter-01]]" 
-  - "[[chapter-02]]"
+  - "()[<chapter-01>]" 
+  - "()[<chapter-02>]"
 
 children:
-  - "[[chapter-01]]"
-  - "[[chapter-02]]"
+  - "()[<chapter-01>]"
+  - "()[<chapter-02>]"
 ```
 
 **Format rules:**
 
-- **Files** are represented as quoted wikilink strings: `"[[filename]]"`
+- **Files** are represented as quoted Markdown links: `"(alias)[<filename>]"`
 - Items should be listed in intended reading/processing order
 - File paths are relative to the document containing this frontmatter
 
@@ -113,15 +114,15 @@ Specifies parent index files that contain/organize this document. Only used by c
 
 ```yaml
 # Single parent
-part_of: "[[GoCoEdit Index]]"
+part_of: "()[<GoCoEdit Index>]"
 
 # Multiple parents  
 part_of:
-  - "[[GoCoEdit Index]]"
-  - "[[Creative Writing Index]]"
+  - "()[<GoCoEdit Index>]"
+  - "()[<Creative Writing Index>]"
 
 # Equivalent using 'parents' alias
-parents: "[[GoCoEdit Index]]"
+parents: "()[<GoCoEdit Index>]"
 ```
 
 ### `this_file_is_root_index`
@@ -154,7 +155,7 @@ File path to checksums. Useful for verifying file downloads.
 
 ### `banner`
 
-Used for specifying an optional Notion-style image banner over a file. Link to image, or alternatively use `![[wikilink]]` syntax.
+Used for specifying an optional Notion-style image banner over a file. Link to image, or alternatively use `!(alias)[<link>]` syntax.
 
 ### `language`
 
