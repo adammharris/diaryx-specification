@@ -5,7 +5,7 @@ created: 2025-08-08 14:41:00-0600
 updated: 2025-08-26 18:01:08-0600
 visibility: public
 format: https://spec.commonmark.org/0.31.2/
-version: "0.1"
+version: "v0.1.1"
 ---
 
 # Diaryx Writing Specification
