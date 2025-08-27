@@ -6,7 +6,7 @@ updated: 2025-08-26 18:01:08-0600
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-version: v0.1.1
+version: v0.1.2
 ---
 
 # Diaryx Writing Specification
@@ -50,8 +50,8 @@ author: John Doe
 created: 2025-08-25 16:24:16-0600
 updated: 2025-08-25 16:24:16-0600
 visibility: family
-format: https://spec.commonmark.org/0.31.2/
-part_of: "()[<Journal entries>]"
+format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+part_of: "[](<Journal entries>)"
 ---
 Today I had thoughts about stuff…
 ```
@@ -71,7 +71,7 @@ author: Name of author
 created: YYYY-MM-DD HH:mm:ssZZ
 updated: YYYY-MM-DD HH:mm:ssZZ
 visibility: author_defined_visibility_rule
-format: https://spec.commonmark.org/0.31.2/
+format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 ---
 ```
 
@@ -80,7 +80,7 @@ format: https://spec.commonmark.org/0.31.2/
 3. `created`: Timestamp at creation of file, format of YYYY-MM-DD HH:mm:ssZZ in MomentJS format (where ZZ is ±HHmm indicating timezone distance away from UTC).
 4. `updated`: Timestamp at time of last modification to file. Same format as `created`
 5. `visibility`: Intended to represent who the writing is intended for, such as `private` or `public`. Can be any single string or list of strings. If this value is a list, the list should not include the values "public" or "private" in order to avoid confusion.
-6. `format`: URI or file path pointing to the specification that defines how to parse this document's content. By default, is the latest CommonMark spec. 
+6. `format`: URI, Markdown link, or file path pointing to the specification that defines how to parse this document's content. By default, is the latest CommonMark spec.  Can also be a list to allow for a certain format with extensions (for example, CommonMark with table, footnote, and callout extensions).
 
 ## Optional
 
@@ -89,18 +89,9 @@ format: https://spec.commonmark.org/0.31.2/
 Specifies child documents that this index file organizes, listed in intended reading/processing order. Only used by index files.
 
 ```yaml
-# All equivalent - choose your preference. Default is `index`
-index:
-  - "()[<chapter-01>]"
-  - "()[<chapter-02>]"
-
 contents:
-  - "()[<chapter-01>]" 
-  - "()[<chapter-02>]"
-
-children:
-  - "()[<chapter-01>]"
-  - "()[<chapter-02>]"
+  - "[Chapter One](<chapter-01>)" 
+  - "[Chapter Two](<chapter-02>)"
 ```
 
 **Format rules:**
@@ -115,15 +106,12 @@ Specifies parent index files that contain/organize this document. Only used by c
 
 ```yaml
 # Single parent
-part_of: "()[<GoCoEdit Index>]"
+part_of: "[](<GoCoEdit files>)"
 
 # Multiple parents  
 part_of:
-  - "()[<GoCoEdit Index>]"
-  - "()[<Creative Writing Index>]"
-
-# Equivalent using 'parents' alias
-parents: "()[<GoCoEdit Index>]"
+  - "[](<GoCoEdit files>)"
+  - "[](<Creative Writing>)"
 ```
 
 ### `this_file_is_root_index`
@@ -133,15 +121,6 @@ Boolean indicating whether this file serves as the root index for a collection. 
 this_file_is_root_index: true   # This is the main organizational hub
 ```
 
-### `format-extensions`
-
-Optional list of additional format specifications that modify the base format. Used for extending CommonMark (or other format) with additional syntax or features.
-
-```yaml
-format-extensions:
-  - "./extensions/math-blocks.md"
-  - "https://github.com/user/custom-callouts"
-```
 ### `version`
 
 A version number for the document, in case you want to record formal version updates.
