@@ -4,8 +4,9 @@ author: Adam Harris
 created: 2025-08-08 14:41:00-0600
 updated: 2025-08-26 18:01:08-0600
 visibility: public
-format: https://spec.commonmark.org/0.31.2/
-version: "v0.1.1"
+format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+version: v0.1.1
 ---
 
 # Diaryx Writing Specification
@@ -35,7 +36,7 @@ Principles are guidelines for how this specification should be. Here are some gu
 
 Imagine you open a file or folder without any prior context. What would you search for? How would you understand the content of the file?
 
-Perhaps the maximally intuitive introduction is a plain description in your native language, like "This file is a journal entry recorded on Dec 31, 2003 by John Doe." However, this presupposes several things: 
+Perhaps the most intuitive introduction is a plain description in your native language, like "This file is a journal entry recorded on Dec 31, 2003 by John Doe." However, this presupposes several things: 
 - the reader is familiar with how this entry relates to other entries
 - the reader knows what format John Doe usually writes his entries in
 - the reader knows John Doe is okay with sharing this entry
@@ -74,7 +75,7 @@ format: https://spec.commonmark.org/0.31.2/
 ---
 ```
 
-1. `title`: String representing the document. Answers, "What is this?"
+1. `title`: String representing the document.
 2. `author`: Single string or list of strings representing author/authors of document.
 3. `created`: Timestamp at creation of file, format of YYYY-MM-DD HH:mm:ssZZ in MomentJS format (where ZZ is ±HHmm indicating timezone distance away from UTC).
 4. `updated`: Timestamp at time of last modification to file. Same format as `created`
