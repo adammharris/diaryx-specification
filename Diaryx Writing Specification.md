@@ -2,7 +2,7 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-08-27T19:49:46-06:00
+updated: 2025-08-27T20:21:05-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
