@@ -2,11 +2,11 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-08-29T12:34:34-06:00
+updated: 2025-08-29T12:40:49-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-version: v0.2.2
+version: v0.2.3
 ---
 
 # Diaryx Writing Specification
@@ -96,7 +96,7 @@ contents:
 
 **Format rules:**
 
-- Files are represented as quoted Markdown links: `"(alias)[link]"`
+- Files are represented as quoted Markdown links: `"[alias](link)"`
 - Items should be listed in intended reading/processing order
 - File paths are relative to the document containing this frontmatter
 - Note that markdown links must be URL-encoded. To avoid this, the CommonMark spec allows links to be wrapped in angle brackets so you can write the name of the link without URL encoding (for example, `[GoCoEdit Files](<GoCoEdit Files.md>)` as opposed to `[GoCoEdit Files](GoCoEdit%20Files.md)`)
@@ -142,7 +142,7 @@ These property values give information simply by their presence. Their value is 
 
 #### `this_file_is_root_index`
 
-Flag indicating whether this file serves as the root index for a collection. If a file uses this property, it must also use the `index`/`contents`/`children` property. If present, must be `true`.
+Flag indicating whether this file serves as the root index for a collection. If a file uses this property, it must also use the `contents` property. If present, must be `true`.
 ```yaml
 this_file_is_root_index: true   # This is the main organizational hub
 ```
