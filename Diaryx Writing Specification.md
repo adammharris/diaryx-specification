@@ -6,7 +6,7 @@ updated: 2025-08-27T20:21:05-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-version: v0.1.4
+version: v0.2.0
 ---
 
 # Diaryx Writing Specification
@@ -84,6 +84,25 @@ format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 
 ## Optional
 
+### Boolean values
+
+These property values give information simply by their presence. Their value is always `true`; otherwise they are invalid. (That is, a `false` value would be the flag simply not being present.)
+
+#### `this_file_is_root_index`
+
+Flag indicating whether this file serves as the root index for a collection. If a file uses this property, it must also use the `index`/`contents`/`children` property. If present, must be `true`.
+```yaml
+this_file_is_root_index: true   # This is the main organizational hub
+```
+
+#### `starred`
+
+Flag indicating that this file has been designated by the author to be part of a special first-class group of documents. If present, must be `true`.
+
+#### `pinned`
+
+Flag indicating that this file has been designated as requiring a prominent, visible spot in the UI.
+
 ### `contents`
 
 Specifies child documents that this index file organizes, listed in intended reading/processing order. Only used by index files.
@@ -112,13 +131,6 @@ part_of: "[](<GoCoEdit files>)"
 part_of:
   - "[](<GoCoEdit files>)"
   - "[](<Creative Writing>)"
-```
-
-### `this_file_is_root_index`
-
-Boolean indicating whether this file serves as the root index for a collection. If a file uses this property, it must also use the `index`/`contents`/`children` property.
-```yaml
-this_file_is_root_index: true   # This is the main organizational hub
 ```
 
 ### `version`
