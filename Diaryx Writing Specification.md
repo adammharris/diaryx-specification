@@ -2,11 +2,11 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-08-29T12:12:39-06:00
+updated: 2025-08-29T12:34:34-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-version: v0.2.1
+version: v0.2.2
 ---
 
 # Diaryx Writing Specification
@@ -51,7 +51,7 @@ created: 2025-08-25 16:24:16-0600
 updated: 2025-08-25 16:24:16-0600
 visibility: family
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
-part_of: "[](<Journal entries>)"
+part_of: "[](<Journal entries.md>)"
 ---
 Today I had thoughts about stuff…
 ```
@@ -96,9 +96,11 @@ contents:
 
 **Format rules:**
 
-- **Files** are represented as quoted Markdown links: `"(alias)[<filename>]"`
+- Files are represented as quoted Markdown links: `"(alias)[link]"`
 - Items should be listed in intended reading/processing order
 - File paths are relative to the document containing this frontmatter
+- Note that markdown links must be URL-encoded. To avoid this, the CommonMark spec allows links to be wrapped in angle brackets so you can write the name of the link without URL encoding (for example, `[GoCoEdit Files](<GoCoEdit Files.md>)` as opposed to `[GoCoEdit Files](GoCoEdit%20Files.md)`)
+- Make sure to include file extensions in the link for compatibility.
 
 ### `part_of`
 
@@ -106,12 +108,12 @@ Specifies parent index files that contain/organize this document. Only used by c
 
 ```yaml
 # Single parent
-part_of: "[](<GoCoEdit files>)"
+part_of: "[](<GoCoEdit files.md>)"
 
 # Multiple parents  
 part_of:
-  - "[](<GoCoEdit files>)"
-  - "[](<Creative Writing>)"
+  - "[](<GoCoEdit files.md>)"
+  - "[](<Creative Writing.md>)"
 ```
 
 ### `version`
@@ -155,3 +157,9 @@ Flag indicating that this file has been designated as requiring a prominent, vis
 ### Health-related properties
 
 For those who use journaling to track their health, Diaryx has optional support for a wide array of health metrics: mood, activity, sleep, vitals, and nutrition. For information about these optional properties, please visit [Diaryx Optional Properties - Health](<Diaryx Optional Properties - Health.md>).
+
+## Error Handling
+
+If the YAML frontmatter is malformed, it may not be parsed and the Diaryx-formatted file is invalid.
+
+If the YAML is valid but does not adhere to rules in the specification (for example, an invalid range or unit), that specific property is invalid, but the Diaryx formatted file is otherwise valid. If any of the required properties are invalid, the whole Diaryx file is invalid.
