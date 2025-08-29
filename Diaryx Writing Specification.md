@@ -154,4 +154,4 @@ Flag indicating that this file has been designated by the author to be part of a
 Flag indicating that this file has been designated as requiring a prominent, visible spot in the UI.
 ### Health-related properties
 
-For those who use journaling to track their health, Diaryx has optional support for a wide array of health metrics: mood, activity, sleep, vitals, and nutrition. For information about these optional properties, please visit [Diaryx Optional Properties - Health](<Diaryx Optional Properties - Health.md).
+For those who use journaling to track their health, Diaryx has optional support for a wide array of health metrics: mood, activity, sleep, vitals, and nutrition. For information about these optional properties, please visit [Diaryx Optional Properties - Health](<Diaryx Optional Properties - Health.md>).
