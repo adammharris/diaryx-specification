@@ -2,16 +2,17 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-09-02T08:40:19-06:00
+updated: 2025-09-02T09:10:41-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 contents:
+  - "[Optional Properties - Device Info](<Diaryx Optional Properties - Device Info.md>)"
   - "[Optional Properties - Health](<Diaryx Optional Properties - Health>)"
   - "[Optional Properties - Location](<Diaryx Optional Properties - Location.md>)"
-  - "[Diaryx-Obsidian Workflow](<Diaryx-Obsidian Workflow.md>)"
+  - "[Optional Properties - Weather](<Diaryx Optional Properties - Weather.md>)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
 this_file_is_root_index: "true"
-version: v0.4.0
+version: v0.5.0
 ---
 
 # Diaryx Writing Specification
@@ -159,6 +160,10 @@ Flag indicating that this file has been designated by the author to be part of a
 #### `pinned`
 
 Flag indicating that this file has been designated as requiring a prominent, visible spot in the UI.
+
+### Device information properties
+
+For those who want to track which files were created on which device, Diaryx has optional support for device information properties. For information about these optional properties, please visit [Diaryx Optional Properties - Device Info](<Diaryx Optional Properties - Device Info.md>)
 ### Health-related properties
 
 For those who use journaling to track their health, Diaryx has optional support for a wide array of health metrics: mood, activity, sleep, vitals, and nutrition. For information about these optional properties, please visit [Diaryx Optional Properties - Health](<Diaryx Optional Properties - Health.md>).
@@ -167,9 +172,9 @@ For those who use journaling to track their health, Diaryx has optional support 
 
 For those who use journaling to log their travels, Diaryx has optional support for location data, including `coordinates`, `location`, and `position`. For information about these optional properties, please visit [Diaryx Optional Properties - Location](<Diaryx Optional Properties - Location.md>).
 
-### Weather
+### `weather` property
 
-For those who log the weather in their journal, Diaryx has optional support for weather metadata. For more information, please visit [Diaryx Optional Properties - Weather](<Diaryx Optional Properties - Weather.md>).
+For those who log the weather in their journal, Diaryx has optional support for weather metadata. For more information about this optional property, please visit [Diaryx Optional Properties - Weather](<Diaryx Optional Properties - Weather.md>).
 ## Error Handling
 
 If the YAML frontmatter is malformed, it may not be parsed and the Diaryx-formatted file is invalid.
