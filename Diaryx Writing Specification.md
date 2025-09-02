@@ -2,7 +2,7 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-09-02T09:10:41-06:00
+updated: 2025-09-02T09:14:41-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 contents:
@@ -12,7 +12,7 @@ contents:
   - "[Optional Properties - Weather](<Diaryx Optional Properties - Weather.md>)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
 this_file_is_root_index: "true"
-version: v0.5.0
+version: v0.5.1
 ---
 
 # Diaryx Writing Specification
@@ -141,6 +141,15 @@ Used for specifying an optional Notion-style image banner over a file. Link to i
 ### `language`
 
 Used for specifying the language this file is written in.
+
+### `tags`, `aliases`
+
+Both of these are lists of arbitrary strings. `tags` is used for assigning topics or organization groups to entries. `aliases` is used to specify other names this entry could go by.
+
+```yaml
+tags: ["notes","thoughts"] #any string you want, as many as you want
+aliases: ["That one note", "my favorite note"]
+``` 
 
 ### Flags
 
