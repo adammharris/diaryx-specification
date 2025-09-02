@@ -2,11 +2,16 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-08-29T12:40:49-06:00
+updated: 2025-09-02T08:37:01-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+contents:
+  - "[Optional Properties - Health](<Diaryx Optional Properties - Health>)"
+  - "[Optional Properties - Location](<Diaryx Optional Properties - Location.md>)"
+  - "[Diaryx-Obsidian Workflow](<Diaryx-Obsidian Workflow.md>)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-version: v0.2.3
+this_file_is_root_index: "true"
+version: v0.3.0
 ---
 
 # Diaryx Writing Specification
@@ -158,6 +163,9 @@ Flag indicating that this file has been designated as requiring a prominent, vis
 
 For those who use journaling to track their health, Diaryx has optional support for a wide array of health metrics: mood, activity, sleep, vitals, and nutrition. For information about these optional properties, please visit [Diaryx Optional Properties - Health](<Diaryx Optional Properties - Health.md>).
 
+### Location-related properties
+
+For those who use journaling to log their travels, Diaryx has optional support for location data, including `coordinates`, `location`, and `position`. For information about these optional properties, please visit [Diaryx Optional Properties - Location](<Diaryx Optional Properties - Location.md>).
 ## Error Handling
 
 If the YAML frontmatter is malformed, it may not be parsed and the Diaryx-formatted file is invalid.

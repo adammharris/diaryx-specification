@@ -2,9 +2,10 @@
 title: Diaryx-Obsidian Workflow
 author: Adam Harris
 created: 2025-08-28T01:10:45+00:00
-updated: 2025-08-27T19:52:24-06:00
+updated: 2025-09-02T08:33:22-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+part_of: "[Diaryx Writing Specification](<Diaryx Writing Specification.md>)"
 ---
 
 # Diaryx-Obsidian Workflow
