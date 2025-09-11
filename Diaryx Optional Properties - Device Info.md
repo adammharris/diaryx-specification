@@ -2,9 +2,10 @@
 title: Diaryx Optional Properties - Device Info
 author: Adam Harris
 created: 2025-09-02T08:56:01-06:00
-updated: 2025-09-02T09:08:04-06:00
+updated: 2025-09-10T21:49:44-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
 part_of: "[Diaryx Writing Specification](<Diaryx Writing Specification.md>)"
 ---
 

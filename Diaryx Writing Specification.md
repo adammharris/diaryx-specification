@@ -2,33 +2,55 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-09-02T09:14:41-06:00
+updated: 2025-09-10T22:07:45-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
 contents:
   - "[Optional Properties - Device Info](<Diaryx Optional Properties - Device Info.md>)"
-  - "[Optional Properties - Health](<Diaryx Optional Properties - Health>)"
+  - "[Optional Properties - Health](<Diaryx Optional Properties - Health.md>)"
   - "[Optional Properties - Location](<Diaryx Optional Properties - Location.md>)"
   - "[Optional Properties - Weather](<Diaryx Optional Properties - Weather.md>)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-this_file_is_root_index: "true"
-version: v0.5.1
+this_file_is_root_index: true
+version: v0.6.0
 ---
 
 # Diaryx Writing Specification
 
-**The Diaryx format is a standardized metadata and file organization format with the goal to enable personal writings to last forever.** To accomplish this, it is designed to:
-1. Be easy for humans to read and use directly.
-2. Clearly describe its own structure, making sharing and importing straightforward.
-3. Be easy for software to parse, search, and transform.
+The Diaryx Writing Format is a specific way of writing a digital document that makes the writing process easier and more effective. It is meant to be both human-readable and machine-parseable.
+
+The purpose of writing is to connect the reader with the author. The Diaryx Writing Format is unique in that it places this purpose front and center. Each Diaryx document requires the author to specify the following properties:
+
+1. `title`: a short summary of the document
+2. `author`: the identity of the writer(s) of the document
+3. `created`: the time the document was first created
+4. `updated`: the time the document was last updated
+5. `visibility`: the identity of the audience/reader(s) of the document
+6. `format`: the format of the text body (for example, CommonMark)
+7. `reachable`: where this writing is accessible
+
+Requiring explicit definitions for these values makes writing easier and more productive for the author:
+
+- Authors plan their writing more effectively when they are required to specify what they are writing about (title) and who they are writing to (visibility).
+- Authors find it easier to write when they constantly have the purpose of their writing in view— less writer's block and more writing.
+- Authors and coauthors find it easier to review writing when they can quickly grasp the context of the writing, without trying to search for it in the body of the text.
+
+It also makes writing easier to understand and more impactful for the reader:
+
+- Readers find it easier to know whether to read or not when the purpose and context of the writing is immediately clear.
+- Readers find it easier to understand the writing as they read because the purpose of the writing is constantly visible.
+- Readers find it easier to revisit and share the content afterward, because it is very clear what the content is and where and to whom it is accessible.
+
+The way Diaryx accomplishes this is simple and compatible with widely-accepted standards: a Diaryx file is simply a Markdown file with YAML frontmatter. Markdown is a widely used markup format, and YAML frontmatter is a common standard for Markdown files, widely recognized in tools such as Pandoc and GitHub. So, the Diaryx Writing Format is perhaps best understood as a YAML frontmatter schema and a collection of best practices.
 
 ## Why is this standard needed?
 
-**Digital journaling has no single portable format.** All store entries differently and export in inconsistent ways. Even when a popular format such as Markdown is used, there’s no agreement on how to represent important metadata such as dates, relation to other writings, or sharing permissions. As a result, personal writings — often a person’s most important and private records — risk being lost over time.
+1. **Digital writing has no single portable format.** Note-taking apps in particular are notorious for locking users into their ecosystem. Even when a popular format such as Markdown is used, there’s no agreement on how to represent important metadata such as dates, relation to other writings, or sharing permissions. As a result, personal writings — often a person’s most important and private records — risk being lost over time.
+2. **Most things people write are not intended to be public.** In contrast, existing standardized writing formats are public-facing (essays, posts, microblogs, comments). HTML, APA, and MLA are all designed for public-facing or academic work. Non-public or private writing deserves the same long-term portability as published works.
+3. **Recent technological advances are forcing the world to reconsider what makes writing meaningful.** Most famously, applications for interfacing with large language models, such as ChatGPT, have shocked many people into wondering if essays are
 
-**Most things people write are not intended to be public.** In contrast, existing standardized writing formats are public-facing (essays, posts, microblogs, comments). HTML, APA, and MLA are all designed for public-facing or academic work. Non-public or private writing deserves the same long-term portability as published works, but without specialized formatting rules.
-
-The Diaryx format aims to fill this gap. **It standardizes metadata in an easily comprehensible way and encourages good defaults, ensuring that an entry can be read and understood decades later.**
+The Diaryx Writing Format aims to fill these gaps by **standardizing good, readable metadata practices.** This helps Diaryx files be super portable and shareable, helps writers keep in mind why they are writing, and helps readers make more informed decisions about what they read.
 
 ## Principles
 
@@ -38,11 +60,11 @@ Principles are guidelines for how this specification should be. Here are some gu
 - **Author flexibility**: Should limit the author as little as possible— not requiring them to name or organize their files in a specific way where reasonable.
 - **Minimal metadata**: A Diaryx file should describe itself as concisely as possible. It should follow well-established conventions and use the absolute minimum amount of metadata possible, while still being sufficiently self-describing.
 
-## Use-case
+## Example
 
 Imagine you open a file or folder without any prior context. What would you search for? How would you understand the content of the file?
 
-Perhaps the most intuitive introduction is a plain description in your native language, like "This file is a journal entry recorded on Dec 31, 2003 by John Doe." However, this presupposes several things: 
+Perhaps the most intuitive introduction is a plain description in your native language, like "This file is a journal entry recorded on Dec 31, 2003 by John Doe." However, this presupposes several things:
 - the reader is familiar with how this entry relates to other entries
 - the reader knows what format John Doe usually writes his entries in
 - the reader knows John Doe is okay with sharing this entry
@@ -57,6 +79,7 @@ created: 2025-08-25 16:24:16-0600
 updated: 2025-08-25 16:24:16-0600
 visibility: family
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+reachable: johndoe@email.com
 part_of: "[](<Journal entries.md>)"
 ---
 Today I had thoughts about stuff…
@@ -87,6 +110,7 @@ format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 4. `updated`: Timestamp at time of last modification to file. Same format as `created`
 5. `visibility`: Intended to represent who the writing is intended for, such as `private` or `public`. Can be any single string or list of strings. If this value is a list, the list should not include the values "public" or "private" in order to avoid confusion.
 6. `format`: URI, Markdown link, or file path pointing to the specification that defines how to parse this document's content. By default, is the latest CommonMark spec.  Can also be a list to allow for a certain format with extensions (for example, CommonMark with table, footnote, and callout extensions).
+7. `reachable`: For public documents, this can be a URL or PID— some kind of clickable link that takes you to the document. The purpose of this property is to give a reader a way to share the document without copying and sending the entire document. So it should either be a reliable reference, or if the document is not public, perhaps contact information for the author of the document.
 
 ## Optional
 
@@ -96,7 +120,7 @@ Specifies child documents that this index file organizes, listed in intended rea
 
 ```yaml
 contents:
-  - "[Chapter One](chapter-01.md)" 
+  - "[Chapter One](chapter-01.md)"
   - "[Chapter Two](chapter-02.md)"
 ```
 
@@ -116,7 +140,7 @@ Specifies parent index files that contain/organize this document. Only used by c
 # Single parent
 part_of: "[](<GoCoEdit files.md>)"
 
-# Multiple parents  
+# Multiple parents
 part_of:
   - "[](<GoCoEdit files.md>)"
   - "[](<Creative Writing.md>)"
@@ -149,7 +173,7 @@ Both of these are lists of arbitrary strings. `tags` is used for assigning topic
 ```yaml
 tags: ["notes","thoughts"] #any string you want, as many as you want
 aliases: ["That one note", "my favorite note"]
-``` 
+```
 
 ### Flags
 

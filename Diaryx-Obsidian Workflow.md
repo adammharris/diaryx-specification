@@ -2,9 +2,10 @@
 title: Diaryx-Obsidian Workflow
 author: Adam Harris
 created: 2025-08-28T01:10:45+00:00
-updated: 2025-09-02T08:33:22-06:00
+updated: 2025-09-10T22:09:18-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
 part_of: "[Diaryx Writing Specification](<Diaryx Writing Specification.md>)"
 ---
 
@@ -31,6 +32,7 @@ created:
 updated:
 visibility:
 format:
+reachable:
 ```
 3. Turn **on** "YAML Timestamp"
 4. Change the "Date Created Key" value to `created` to match the Diaryx schema

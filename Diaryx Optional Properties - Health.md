@@ -2,9 +2,10 @@
 title: Diaryx Optional Properties - Health
 author: Adam Harris
 created: 2025-08-29T12:07:47-06:00
-updated: 2025-09-02T08:33:17-06:00
+updated: 2025-09-10T21:49:39-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
 part_of: "[Diaryx Writing Specification](<Diaryx Writing Specification.md>)"
 ---
 

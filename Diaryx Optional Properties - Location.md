@@ -2,9 +2,10 @@
 title: Diaryx Optional Properties - Location
 author: Adam Harris
 created: 2025-09-02T08:08:12-06:00
-updated: 2025-09-02T08:33:07-06:00
+updated: 2025-09-10T21:49:36-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
 part_of: "[Diaryx Writing Specification](<Diaryx Writing Specification.md>)"
 ---
 
