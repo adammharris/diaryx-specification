@@ -1,0 +1,74 @@
+name: Build & Deploy Diaryx Spec (Git Install)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  ENTRY_FILE: "Diaryx Writing Specification copy.md"
+  OUTPUT_DIR: site-build
+  # Pin to a commit hash or tag for reproducibility instead of 'main'
+  DIARYX_CLI_GIT_REF: v0.3.0-alpha
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout spec repo
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo install artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.cargo/bin
+          key: ${{ runner.os }}-diaryx-install-${{ env.DIARYX_CLI_GIT_REF }}
+          restore-keys: ${{ runner.os }}-diaryx-install-
+
+      - name: Install diaryx CLI from git
+        run: |
+          cargo install --git https://github.com/adammharris/diaryx-cli \
+            --tag $DIARYX_CLI_GIT_REF \
+            --locked \
+            diaryx-cli
+          diaryx --version
+
+      - name: Build site
+        run: |
+          mkdir -p "$OUTPUT_DIR"
+            diaryx build \
+              --input "$ENTRY_FILE" \
+              --output "$OUTPUT_DIR" \
+              --emit-json
+          ls -1 "$OUTPUT_DIR"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.OUTPUT_DIR }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
