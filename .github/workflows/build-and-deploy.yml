@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  ENTRY_FILE: "Diaryx Writing Specification copy.md"
+  ENTRY_FILE: "Diaryx Writing Specification.md"
   OUTPUT_DIR: site-build
   # Pin to a commit hash or tag for reproducibility instead of 'main'
   DIARYX_CLI_GIT_REF: v0.3.0-alpha
