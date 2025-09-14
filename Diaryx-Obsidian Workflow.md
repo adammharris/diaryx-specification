@@ -2,11 +2,10 @@
 title: Diaryx-Obsidian Workflow
 author: Adam Harris
 created: 2025-08-28T01:10:45+00:00
-updated: 2025-09-10T22:09:18-06:00
+updated: 2025-09-13T22:30:39-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
-part_of: "[Diaryx Writing Specification](<Diaryx Writing Specification.md>)"
 ---
 
 # Diaryx-Obsidian Workflow
@@ -50,4 +49,4 @@ Here are some suggested (but not required) changes to get a little more leverage
 
 ## Celebrate!
 
-Congratulations! Now your Obsidian vault will enforce the Diaryx format, ensuring that your files always have a clear source of truth for a variety of 
+Congratulations! Now your Obsidian vault will enforce the Diaryx format, ensuring that your files always have a clear source of truth for a variety of important metadata properties.

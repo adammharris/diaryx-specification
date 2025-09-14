@@ -2,7 +2,7 @@
 title: Diaryx Specification README
 author: Adam Harris
 created: 2025-08-26T20:43:49+00:00
-updated: 2025-09-11T08:41:09-06:00
+updated: 2025-09-12T17:54:43-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
