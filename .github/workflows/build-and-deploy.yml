@@ -2,7 +2,7 @@ name: Build & Deploy Diaryx Spec (Git Install)
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ env:
   ENTRY_FILE: "Diaryx Writing Specification.md"
   OUTPUT_DIR: site-build
   # Pin to a commit hash or tag for reproducibility instead of 'main'
-  DIARYX_CLI_GIT_REF: v0.3.0-alpha
+  DIARYX_CLI_GIT_REF: v0.4.0-alpha
 
 jobs:
   build:

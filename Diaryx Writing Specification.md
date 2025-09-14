@@ -2,7 +2,7 @@
 title: Diaryx Writing Specification
 author: Adam Harris
 created: 2025-08-28T01:17:34+00:00
-updated: 2025-09-13T22:29:21-06:00
+updated: 2025-09-14T09:48:21-06:00
 visibility: 
 - public
 - Digital journal users
@@ -11,12 +11,51 @@ visibility:
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
 copying: "[Creative Commons Attribution-Sharealike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
-version: v0.7.0
+version: v0.7.1
 ---
 
 # Diaryx Writing Specification
 
-The Diaryx Writing Format is a specific way of writing a digital document that makes the writing process easier and more effective. It is meant to be both human-readable and machine-parseable.
+The Diaryx Writing Format is a specific method of digital writing that makes the writing process easier and more effective. It is meant to be both human-readable and machine-parseable.
+
+## 0.1 Example
+
+Imagine you open a file or folder without any prior context. How would you understand the content of the file?
+
+If the file was in Diaryx format, the reader would see something like this:
+
+```Markdown
+---
+title: Thoughts about stuff
+author: John Doe
+created: 2025-08-25T16:24:16-06:00
+updated: 2025-08-25T16:24:16-06:00
+visibility:
+- family
+- friends
+format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
+reachable: johndoe@email.com
+part_of: "[My journal](<Journal entries.md>)"
+---
+
+# Thoughts about stuff
+
+Today I had thoughts about stuff…
+```
+
+Now the reader knows:
+- that this entry is appropriate to share with family
+- that this particular entry is in CommonMark format
+- that this entry is part of a larger group of entries, as is evident in the `part_of` attribute
+- That the author of the  can be reached at "johndoe@email.com"
+
+All of this information is clear and understandable even to someone who only has a plain text viewer and does not know YAML or markdown.
+
+But what if I don't want to read boring plain text? Fortunately, because Diaryx uses structured markup and metadata, it is very easy to convert it to more visually pleasing formats:
+
+![](<Diaryx Specification Example Image.png>)
+
+## 0.2 Purpose
 
 The purpose of writing is to connect the reader with the author. The Diaryx Writing Format is unique in that it places this purpose front and center. Each Diaryx document requires the author to specify the following properties:
 
@@ -42,9 +81,9 @@ It also makes writing easier to understand and more impactful for the reader:
 
 The way Diaryx accomplishes this is simple and compatible with widely-accepted standards: a Diaryx file is simply a Markdown file with YAML frontmatter. Markdown is a widely used markup format, and YAML frontmatter is a common standard for Markdown files, widely recognized in tools such as Pandoc and GitHub. So, the Diaryx Writing Format is perhaps best understood as a YAML frontmatter schema and a collection of best practices.
 
-As an initial example, notice that this specification is written in Diaryx Format.
+As an initial example, notice that this specification is written in Diaryx Writing Format. ("Diaryx Writing Format" refers to the general format, and "Diaryx Writing Specification" refers to this specific document.)
 
-## 0.1 Why is this standard needed?
+## 0.3 Why is this standard needed?
 
 1. **Digital writing has no single portable format.** Note-taking apps in particular are notorious for locking users into their ecosystem. Even when a popular format such as Markdown is used, there’s no agreement on how to represent important metadata such as dates, relation to other writings, or sharing permissions. As a result, personal writings — often a person’s most important and private records — risk being lost over time.
 2. **Most things people write are not intended to be public.** In contrast, existing standardized writing formats are public-facing (essays, posts, microblogs, comments). HTML, APA, and MLA are all designed for public-facing or academic work. Non-public or private writing deserves the same long-term portability as published works.
@@ -52,7 +91,7 @@ As an initial example, notice that this specification is written in Diaryx Forma
 
 The Diaryx Writing Format aims to fill these gaps by **standardizing good, readable metadata practices.** This helps Diaryx files be super portable and shareable, helps writers keep in mind why they are writing, and helps readers make more informed decisions about what they read.
 
-## 0.2 Principles
+## 0.4 Principles
 
 Principles are guidelines for how this specification should be. Here are some guidelines:
 - **Human-readable**: Diaryx metadata should make intuitive sense to a non-technical person reading the plain text file. For example, we avoid JSON and prefer YAML. And by default, a file's format is CommonMark, a well-defined markup syntax designed to be both readable in plain text and publishable as-is.
@@ -60,38 +99,11 @@ Principles are guidelines for how this specification should be. Here are some gu
 - **Author flexibility**: Should limit the author as little as possible— not requiring them to name or organize their files in a specific way where reasonable.
 - **Minimal metadata**: A Diaryx file should describe itself as concisely as possible. It should follow well-established conventions and use the absolute minimum amount of metadata possible, while still being sufficiently self-describing.
 
-## 0.3 YAML Frontmatter
+## 0.5 YAML Frontmatter
 
 A Diaryx file is typically a markdown file with a `.md` extension. In this file, there is a special section called "frontmatter." It is started and ended by triple dashes (`---`). Within the triple dash area is structured data written according to [YAML format](https://yaml.org). YAML is a simple way to write structured data.
 
-## 0.4 Example
-
-Imagine you open a file or folder without any prior context. What would you search for? How would you understand the content of the file?
-
-Perhaps the most intuitive introduction is a plain description in your native language, like "This file is a journal entry recorded on Dec 31, 2003 by John Doe." However, this presupposes several things:
-- the reader is familiar with how this entry relates to other entries
-- the reader knows what format John Doe usually writes his entries in
-- the reader knows John Doe is okay with sharing this entry
-
-If the file was in Diaryx format, the reader would see something like this:
-
-```yaml
----
-title: Thoughts about stuff
-author: John Doe
-created: 2025-08-25 16:24:16-0600
-updated: 2025-08-25 16:24:16-0600
-visibility: family
-format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
-reachable: johndoe@email.com
-part_of: "[](<Journal entries.md>)"
----
-Today I had thoughts about stuff…
-```
-
-Now the reader knows that this entry is appropriate to share with family, and that John Doe recorded this particular entry in CommonMark format. We also see that this entry is part of a larger group of entries, as is evident in the `part_of` attribute.
-
-## 0.5 Character Encoding and Line Endings
+## 0.6 Character Encoding and Line Endings
 
 The Diaryx Writing Format uses UTF-8 character encoding and prefers LF (`\n`) line endings.
 
@@ -158,6 +170,13 @@ Intended to represent who the writing is intended for. Usually a list of values,
 
 ### 1.4.1 `public`
 
+```yaml
+visibility:
+- public
+- friends
+# …
+```
+
 **Function**
 Used to indicate that the author doesn't mind allowing unrestricted access to anyone who happens to find the document.
 
@@ -165,6 +184,10 @@ Used to indicate that the author doesn't mind allowing unrestricted access to an
 It can be useful if the author wants to write something quickly to publish on the Internet. However, using `public` as the *only* value for `visibility` is **strongly discouraged**. Applications implementing this specification should show a warning if that is the case. This is to encourage authors to consider their audience. Authors can use values such as `historians`, `[insert demographic group here]`, or whatever other value may clarify the reason why the document is public.
 
 ### 1.4.2 `universal`
+
+```yaml
+visibility: universal
+```
 
 **Function**
 Same as `public`
@@ -174,6 +197,13 @@ Applies to documents of generally-agreed-upon moral or religious significance, s
 
 ### 1.4.3 `private`
 
+```yaml
+visibility:
+- private
+- scratchpaper
+# …
+```
+
 **Function**
 Used to indicate that access is strictly limited to those named as author(s).
 
@@ -181,6 +211,13 @@ Used to indicate that access is strictly limited to those named as author(s).
 It can be useful to make sure that the document is not accidentally published. However, using `private` as the *only* value for `visibility` is **strongly discouraged**. Applications implementing this specification should show a warning if that is the case.  This is to encourage authors to consider the reason why the document is private. Authors may use values such as `externalization`, `catharsis`, `rant`, `scratchpaper`, or others to indicate the reason why the document is private.
 
 ### 1.4.4 `disposable`
+
+```yaml
+visibility:
+- coworker1
+- disposable
+# …
+```
 
 **Function**
 Used to indicate that the document is ephemeral and is intended to be deleted without negative consequences.

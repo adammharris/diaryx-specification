@@ -2,7 +2,7 @@
 title: Diaryx-Obsidian Workflow
 author: Adam Harris
 created: 2025-08-28T01:10:45+00:00
-updated: 2025-09-13T22:30:39-06:00
+updated: 2025-09-14T10:06:01-06:00
 visibility: public
 format: "[CommonMark (Markdown)](https://spec.commonmark.org/0.31.2/)"
 reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-specification)"
@@ -10,16 +10,17 @@ reachable: "[Diaryx Spec Github Repo](https://github.com/adammharris/diaryx-spec
 
 # Diaryx-Obsidian Workflow
 
-To use Diaryx in an Obsidian vault, you can set a specific setting in the regular Obsidian settings, and use two helpful community plugins:
+To use Diaryx in an Obsidian vault, you can set a specific setting in the regular Obsidian settings, and use three helpful community plugins:
 
-- [_Linter_](obsidian://show-plugin?id=obsidian-linter)
-- [_Frontmatter Markdown Links_](obsidian://show-plugin?id=obsidian-linter)
+- [*Linter*](obsidian://show-plugin?id=obsidian-linter)
+- [*Frontmatter Markdown Links*](obsidian://show-plugin?id=obsidian-linter)
+- [*Better Markdown Links*](obsidian://show-plugin?id=better-markdown-links)
 
-_Frontmatter Markdown Links_ allows for clickable Markdown-style links in Obsidian frontmatter, which is very helpful for those who make extensive use of the `contents` and `part_of` properties. _Linter_ allows you to define a specific YAML schema and automatically update the title and timestamp fields.
+*Frontmatter Markdown Links* allows for clickable Markdown-style links in Obsidian frontmatter, which is very helpful for those who make extensive use of the `contents` and `part_of` properties. *Linter* allows you to define a specific YAML schema and automatically update the title and timestamp fields. *Better Markdown Links* gives better support for links so links are usable without needing to be Wikilinks.
 
-First, change the "Use \[\[Wikilinks]]" option in Obsidian's "Files and Links" settings to **off**. The Diaryx schema only supports Markdown links for compatibility.
+First, change the "Use \[\[Wikilinks]]" option in Obsidian's "Files and Links" settings to **off**. The Diaryx schema only supports Markdown links for compatibility. Also set "New link format" to "Use relative links".
 
-Next, install _Linter_ and _Frontmatter Markdown Links_.
+Next, install *Linter*, *Frontmatter Markdown Links*, and *Better Markdown Links*.
 
 Next, configure _Linter_ with the following options:
 1. Turn **on** "Insert YAML Attributes"
@@ -49,4 +50,4 @@ Here are some suggested (but not required) changes to get a little more leverage
 
 ## Celebrate!
 
-Congratulations! Now your Obsidian vault will enforce the Diaryx format, ensuring that your files always have a clear source of truth for a variety of important metadata properties.
+Congratulations! Now your Obsidian vault will enforce the Diaryx format, ensuring that your files are readable and usable, whatever you use them for.
