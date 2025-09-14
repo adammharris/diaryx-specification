@@ -1,4 +1,4 @@
-name: Build & Deploy Diaryx Spec (Git Install)
+name: Build & Deploy Diaryx Spec (Local Build)
 
 on:
   push:
@@ -30,31 +30,26 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Cache cargo install artifacts
-        uses: actions/cache@v4
+      - name: Checkout diaryx-cli
+        uses: actions/checkout@v4
         with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            ~/.cargo/bin
-          key: ${{ runner.os }}-diaryx-install-${{ env.DIARYX_CLI_GIT_REF }}
-          restore-keys: ${{ runner.os }}-diaryx-install-
+          repository: adammharris/diaryx-cli
+          ref: ${{ env.DIARYX_CLI_GIT_REF }}
+          path: diaryx-cli
 
-      - name: Install diaryx CLI from git
+      - name: Build diaryx CLI
         run: |
-          cargo install --git https://github.com/adammharris/diaryx-cli \
-            --tag $DIARYX_CLI_GIT_REF \
-            --locked \
-            diaryx-cli
-          diaryx --version
+          cd diaryx-cli
+          cargo build --release
+          ./target/release/diaryx --version
 
       - name: Build site
         run: |
           mkdir -p "$OUTPUT_DIR"
-            diaryx build \
-              --input "$ENTRY_FILE" \
-              --output "$OUTPUT_DIR" \
-              --emit-json
+          ./diaryx-cli/target/release/diaryx build \
+            --input "$ENTRY_FILE" \
+            --output "$OUTPUT_DIR" \
+            --emit-json
           ls -1 "$OUTPUT_DIR"
 
       - name: Upload Pages artifact
