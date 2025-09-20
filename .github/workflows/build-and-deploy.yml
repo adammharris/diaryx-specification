@@ -18,7 +18,7 @@ env:
   ENTRY_FILE: "Diaryx Writing Specification.md"
   OUTPUT_DIR: site-build
   # Pin to a commit hash or tag for reproducibility instead of 'main'
-  DIARYX_CLI_GIT_REF: v0.4.0-alpha
+  DIARYX_CLI_GIT_REF: v0.4.1-alpha
 
 jobs:
   build:
@@ -34,7 +34,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: adammharris/diaryx-cli
-          ref: ${{ env.DIARYX_CLI_GIT_REF }}
           path: diaryx-cli
 
       - name: Build diaryx CLI
