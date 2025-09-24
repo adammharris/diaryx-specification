@@ -1,3 +1,6 @@
 .obsidian
 site
 .DS_Store
+thoughts.md
+dist
+public
